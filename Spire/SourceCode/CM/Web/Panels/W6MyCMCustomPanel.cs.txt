@@ -1,0 +1,34 @@
+﻿using System;
+using System.Xml;
+using System.Collections.Generic;
+
+using W6.ClickMobile.Web.ObjectModel;
+using W6.ClickMobile.Web.AddIns.AddInManager;
+using W6.ClickMobile.Web.AddIns.EventArguments.Forms;
+using W6.ClickMobile.Web.AddIns.AddInsInterfaces;
+using W6.ClickMobile.Web.AddIns.ClientServices;
+using W6.ClickMobile.Web.UI.Controls.PropertyPanels;
+using W6CMClientGlobals;
+
+namespace PS.CM.Web.Panels
+{
+    /// <summary>
+    /// this is a class with the role of demonstrating how to create a Custom Panel
+    /// </summary>
+    public class W6MyCMCustomPanel : W6CMCustomPanel
+    {
+        /// <summary>
+        /// override for the W6CMCustomPanel.Init method 
+        /// in here, new elements should be created and added to the DOM
+        /// </summary>
+        public override void Init()
+        {
+            //base.Init();
+
+            //string str = "<div>My div</div>";
+            //// append the html to main container
+            //jQuery.FromHtml(str).AppendTo(MainElement);
+
+        }
+    }
+}

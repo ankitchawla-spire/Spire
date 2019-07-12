@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using jQueryApi;
+
+using W6.ClickMobile.Web.ObjectModel;
+using W6.ClickMobile.Web.AddIns.AddInManager;
+using W6.ClickMobile.Web.AddIns.EventArguments.Forms;
+using W6.ClickMobile.Web.AddIns.AddInsInterfaces;
+using W6.ClickMobile.Web.AddIns.ClientServices;
+
+namespace PS.CM.Web.Events
+{
+    
+    /// <summary>
+    /// an example  class for Form event implementation
+    /// </summary>
+    public class W6MyCMCustomFormEvents
+    {
+        /// <summary>
+        /// constructor, subscribing to 2 events - Form before save and Form After open
+        /// </summary>
+        public W6MyCMCustomFormEvents()
+        {
+            W6CMAddInManager.FormEvents.BeforeSaveForm += new W6CMBeforeSaveFormEventHandler(FormEvents_BeforeSaveForm);
+            W6CMAddInManager.FormEvents.AfterOpenForm += new W6CMAfterOpenFormEventHandler(FormEvents_AfterOpenForm);
+        }
+        
+        void FormEvents_AfterOpenForm(IW6CMControllerServices controllerServices, W6CMAfterOpenFormEventArgs e)
+        {
+            //implement here
+        }
+       
+        void FormEvents_BeforeSaveForm(IW6CMControllerServices controllerServices, W6CMBeforeSaveFormEventArgs e)
+        {
+            //implement here
+        }
+    }    
+}

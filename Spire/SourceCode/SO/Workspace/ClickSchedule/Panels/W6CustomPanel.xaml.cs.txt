@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+using W6.Web.FormEngine.PropertyPanels;
+
+namespace PS.ClickSchedule.Panels
+{
+    public partial class W6CustomPanel : W6CustomPanelControlBase
+    {
+        public W6CustomPanel()
+        {
+            InitializeComponent();
+        }
+    }
+
+    // TODO : Add your code.
+    // You can use the following W6CustomPanelControl API:
+    //    public string AdditionalParameters { get; set; }
+    //    public W6Form ParentForm { get; set; }
+
+}

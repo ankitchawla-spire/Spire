@@ -1,0 +1,69 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using W6AgentsManagerLib;
+using W6ShPErrorLib;
+using W6ObjectServer;
+using System.Xml;
+using W6CreateEventLog;
+
+
+namespace W6FileAttachment.Server.Agents
+{
+    public class W6CustomPBMAction : W6GenericUtilities.IW6GenericAction
+    {
+
+        #region IW6GenericAction Methods
+
+        /// <summary>
+        /// Initialize agent before each execution
+        /// </summary>
+        /// <param name="aggAction"></param>
+        public void Initialize(W6GenericAggregateValue aggAction)
+        {
+            
+        }
+
+        /// <summary>
+        /// Agent run
+        /// </summary>
+        /// <param name="w6Object"></param>
+        /// <param name="objlist"></param>
+        /// <param name="aggAction"></param>
+        /// <param name="strExtraParameters"></param>
+        /// <param name="bUpdateRequired"></param>
+        /// <returns></returns>
+        public W6GenericUtilities.W6CONTINUE_TYPE DoAction(W6Object w6Object, List<W6Object> objlist, W6GenericAggregateValue aggAction, string strExtraParameters, out bool bUpdateRequired)
+        {
+            
+            try
+            {
+            
+            }
+            catch (Exception ex)
+            {
+            
+            }
+
+            return W6GenericUtilities.W6CONTINUE_TYPE.CONTINUE;
+        }
+
+        #region Unused Methods
+
+        public W6GenericUtilities.W6CONTINUE_TYPE DoAction(W6Object obj, W6GenericAggregateValue aggAction, string strExtraParameters, out bool bUpdateRequired)
+        {
+            return W6GenericUtilities.W6CONTINUE_TYPE.CONTINUE;
+        }
+
+        public W6CoreEnums.W6EVENT_STATUS OnPopulateObject(W6Object populatedObject, W6Object sourceObject, W6GenericAggregateValue aggAction, string strExtraParameters)
+        {
+            return W6CoreEnums.W6EVENT_STATUS.W6EVENT_STATUS_RESUME;
+        }
+
+        #endregion
+
+        #endregion
+    }
+}

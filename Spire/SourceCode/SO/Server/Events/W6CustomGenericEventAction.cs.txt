@@ -1,0 +1,62 @@
+﻿using System;
+using W6GenericUtilities;
+using W6CoreEnums;
+using W6ObjectServer;
+using W6PBaseLib;
+using W6BFObjModLib;
+using W6PDictnryLib;
+
+namespace PS.Server.Events
+{
+    public class W6CustomGenericEventAction : IW6GenericEventOperation
+    {
+        public W6EVENT_STATUS OnBeforeCreate(W6Object objNew, W6GenericAggregateValue aggAction, string strExtraParameters)
+        {
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                W6ShPErrorLib.W6ShPErrorUtilities.W6CreateComErrorEx(ex, false).Raise(ex.StackTrace, true);
+            }
+
+            return W6CoreEnums.W6EVENT_STATUS.W6EVENT_STATUS_RESUME;
+        }
+
+
+        public W6EVENT_STATUS OnBeforeDelete(W6Object objOld, W6GenericAggregateValue aggAction, string strExtraParameters)
+        {
+            return W6EVENT_STATUS.W6EVENT_STATUS_RESUME;
+        }
+
+        public W6EVENT_STATUS OnBeforeUpdate(W6Object objOld, W6Object objNew, W6GenericAggregateValue aggAction, string strExtraParameters)
+        {
+            return W6EVENT_STATUS.W6EVENT_STATUS_RESUME;
+        }
+
+        public W6EVENT_STATUS OnAfterCreate(W6Object objNew, W6GenericAggregateValue aggAction, string strExtraParameters)
+        {
+            return W6EVENT_STATUS.W6EVENT_STATUS_RESUME;
+        }
+
+        public W6EVENT_STATUS OnAfterDelete(W6Object objOld, W6GenericAggregateValue aggAction, string strExtraParameters)
+        {
+            return W6EVENT_STATUS.W6EVENT_STATUS_RESUME;
+        }
+
+        public W6EVENT_STATUS OnAfterUpdate(W6Object objOld, W6Object objNew, W6GenericAggregateValue aggAction, string strExtraParameters)
+        {
+            return W6EVENT_STATUS.W6EVENT_STATUS_RESUME;
+        }
+
+        public bool AppliesTo(EVENT_OPERATION eOperation, EVENT_PHASE ePhase)
+        {
+			// validate which operation is relevant for this event (create \ update \ delete) on which phase
+            if ((eOperation == EVENT_OPERATION.EVENT_OPERATION_CREATE) && ePhase == EVENT_PHASE.EVENT_PHASE_BEFORE)
+                return true;
+
+            return false;
+        }
+    }
+}

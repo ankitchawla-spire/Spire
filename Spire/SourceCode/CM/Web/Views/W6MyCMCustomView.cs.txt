@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using jQueryApi;
+using W6.ClickMobile.Web.ObjectModel;
+using W6.ClickMobile.Web.AddIns.AddInsInterfaces;
+using W6.ClickMobile.Web.AddIns.ClientServices;
+using W6.ClickMobile.Web.AddIns.AddInManager;
+
+namespace PS.CM.Web.Views
+{
+    /// <summary>
+    /// this class is an example of Custom View / Custom Tab Add in 
+    /// </summary>
+    public class CustomViewExample : IW6CMCustomTab
+    {
+
+        /// <summary>
+        /// implementation of IW6CMCustomTab.Init
+        /// the method should return the Html element which will be added to the Dom
+        /// </summary>
+        /// <param name="objControllerServices">reference to the ControllerService</param>
+        /// <returns></returns>
+        public System.Html.Element Init(IW6CMControllerServices objControllerServices)
+        {
+            string strView = "<div>My Div</div>";
+            //jQueryObject m_objQuery = jQuery.FromHtml(strView);
+            //return m_objQuery.GetElement(0);
+        }
+
+        /// <summary>
+        /// keep the custom settings to a member
+        /// </summary>
+        /// <param name="strCustomSettings">custom settings string</param>
+        public void SetCustomSettings(string strCustomSettings)
+        {
+            //m_strCustomSettings = strCustomSettings;
+        }
+    }
+}

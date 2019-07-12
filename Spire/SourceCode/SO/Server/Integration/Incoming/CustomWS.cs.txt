@@ -1,0 +1,70 @@
+﻿using System;
+using System.ServiceModel;
+using System.Xml.Serialization;
+
+using W6ObjectModel;
+using W6ObjectServer;
+using W6ServiceContracts;
+using W6Services;
+
+namespace PS.Server.Integration.Incoming
+{
+    #region Declare Web Service Contract
+    [ServiceContract(Name = "CustomWS", Namespace = "http://www.clicksoftware.com/")]
+    [XmlSerializerFormat]
+    public interface ICustomWS : IW6MessageProcessor
+    {
+        
+        [OperationContract]
+        [return: MessageParameter(Name = "Task")]
+        W6Demand TaskGet(W6DemandReference Task, W6RequestedProperties TaskRequestedProperties);
+
+    }
+    
+    #endregion
+
+    /// <summary>
+    /// Implement service operation.
+    /// </summary>
+    public class CustomWS : W6ServiceBase<ICustomWS>, ICustomWS
+    {
+        public  W6Demand TaskGet(W6DemandReference Task, W6RequestedProperties TaskRequestedProperties)
+        {
+            W6Session objSession = null;
+            W6Demand objResult = null;
+			try
+			{
+                //Connect to the session.
+				objSession = new W6Session(true);											
+				if (w6ObjectRef != null)
+				{
+                    //Retrieves the Task object.
+					objResult = objSession.LockObjectByIndex(w6ObjectRef);		
+					if (objResult == null)
+					{
+						throw new Exception("Not Found");
+					}
+
+                    //Set a list of properties to include in the response.
+					objResult.SerializableProperties = requestedProperties;	
+				}
+			}
+			catch (Exception ex)
+			{
+				//Throw the exception.
+				throw ex;																
+			}
+			finally
+			{
+				if (session != null)
+				{
+                    //Close session.
+					session.Disconnect();												
+				}
+			}
+
+			return objResult;
+        }
+    }
+}
+

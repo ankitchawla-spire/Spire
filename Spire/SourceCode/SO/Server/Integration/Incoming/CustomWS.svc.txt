@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Factory="W6ServiceHost.W6ServiceHostFactory" Service="PS.Server.Integration.Incoming.CustomWS, PS.Server" %>
